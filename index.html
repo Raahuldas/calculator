@@ -1,0 +1,310 @@
+<html>
+<head>
+<title>calculator</title>
+<style type="text/css">
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+.main{
+height:515px;
+width:415px;
+background-color:whitesmoke;
+border:15px solid black;
+margin:auto;
+margin-top:50px;
+box-shadow:10px 12px 5px 5px grey; 
+border-radius: 10px;
+padding: 2px;
+}
+
+#input{
+width:100%;
+height:18%;
+border:1px solid red;
+margin:5px auto;
+display:flex;
+border-radius: 5px;
+}
+
+#ip{
+width:85%;
+height:100%;
+font-size:2rem;
+border-bottom-left-radius: 5px;
+border-top-left-radius: 5px;
+border: 1px solid red;
+}
+
+#opr{
+width:15%;
+height:100%;
+border:1px solid red;
+background-color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:2rem;
+border-top-right-radius: 5px;
+border-bottom-right-radius: 5px;
+}
+
+.buttons{
+cursor:pointer;
+}
+
+.r1, .r2,.r3,.r4{
+width:100%;
+height:20%;
+
+display:flex;
+}
+
+.r1 div,.r2 div,.r3 div,.r4 div{
+width:25%;
+height:100%;
+border:1px solid black;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:2rem;
+border-radius: 5px;
+}
+
+#c{
+background-color:#ff0000bf;
+}
+
+#plus,#minus,#multiply,#divide{
+background-color:aliceblue;
+}
+
+#ans{
+background-color:#7eb73c;
+}
+</style>
+</head>
+
+
+<body>
+<div class="main">
+<div id="input">
+<input type="text" name="num" get="any" readonly="" id="ip"> <div id="opr"></div>
+</div>
+<div class="buttons">
+<div class="r1">
+<div id="c">C</div>
+<div id="n0">0</div>
+<div id="plus">+</div>
+<div id="minus">-</div>
+</div>
+
+<div class="r2">
+<div id="n1">1</div>
+<div id="n2">2</div>
+<div id="n3">3</div>
+<div id="multiply">*</div>
+</div>
+
+<div class="r3">
+<div id="n4">4</div>
+<div id="n5">5</div>
+<div id="n6">6</div>
+<div id="divide">/</div>
+</div>
+
+<div class="r4">
+<div id="n7">7</div>
+<div id="n8">8</div>
+<div id="n9">9</div>
+<div id="ans">=</div>
+</div>
+
+</div>
+</div>
+</body>
+
+<script type="text/javascript">
+
+var n0=document.getElementById('n0');
+var n1=document.getElementById('n1');
+var n2=document.getElementById('n2');
+var n3=document.getElementById('n3');
+var n4=document.getElementById('n4');
+var n5=document.getElementById('n5');
+var n6=document.getElementById('n6');
+var n7=document.getElementById('n7');
+var n8=document.getElementById('n8');
+var n9=document.getElementById('n9');
+var plus=document.getElementById('plus');
+var minus=document.getElementById('minus');
+var multiply=document.getElementById('multiply');
+var divide=document.getElementById('divide');
+var ans=document.getElementById('ans');
+
+var opr=document.getElementById('opr');
+
+var c=document.getElementById('c');
+
+var ip=document.getElementById('ip');
+
+n1.addEventListener("click",event=>{
+if(ip.value==""){
+ip.value="1"
+}
+else{
+ip.value= ip.value+"1";
+}
+});
+
+n2.addEventListener("click",event=>{
+if(ip.value==""){
+ip.value="2"
+}
+else{
+ip.value= ip.value+"2";
+}
+});
+
+n3.addEventListener("click",event=>{
+if(ip.value==""){
+ip.value="3"
+}
+else{
+ip.value= ip.value+"3";
+}
+});
+
+n4.addEventListener("click",event=>{
+if(ip.value==""){
+ip.value="4"
+}
+else{
+ip.value= ip.value+"4";
+}
+});
+
+n5.addEventListener("click",event=>{
+if(ip.value==""){
+ip.value="5"
+}
+else{
+ip.value= ip.value+"5";
+}
+});
+
+n6.addEventListener("click",event=>{
+if(ip.value==""){
+ip.value="6"
+}
+else{
+ip.value= ip.value+"6";
+}
+});
+
+n7.addEventListener("click",event=>{
+if(ip.value==""){
+ip.value="7"
+}
+else{
+ip.value= ip.value+"7";
+}
+});
+
+n8.addEventListener("click",event=>{
+if(ip.value==""){
+ip.value="8"
+}
+else{
+ip.value= ip.value+"8";
+}
+});
+
+n9.addEventListener("click",event=>{
+if(ip.value==""){
+ip.value="9"
+}
+else{
+ip.value= ip.value+"9";
+}
+});
+
+n0.addEventListener("click",event=>{
+if(ip.value==""){
+ip.value="0"
+}
+else{
+ip.value= ip.value+"0";
+}
+});
+
+//------------------------
+var a;
+var b;
+
+//var oprp = "+";
+//var oprm = "-";
+
+c.addEventListener("click",event=>{
+ip.value="";
+opr.innerText="";
+});
+
+
+plus.addEventListener("click",event=>{
+opr.innerText="+";
+a=ip.value;
+ip.value="";
+})
+
+minus.addEventListener("click",event=>{
+opr.innerText="-";
+a=ip.value;
+ip.value="";
+})
+
+multiply.addEventListener("click",event=>{
+opr.innerText="x";
+a=ip.value;
+ip.value="";
+})
+
+divide.addEventListener("click",event=>{
+opr.innerText="/";
+a=ip.value;
+ip.value="";
+})
+
+ans.addEventListener("click",event=>{
+b=ip.value;
+
+if(opr.innerText=="+"){
+ip.value=+a + +b;
+}else if(opr.innerText=="-"){
+ip.value=+a - +b;
+}else if(opr.innerText=="x"){
+ip.value=+a * +b;
+}else if(opr.innerText=="/"){
+ip.value=+a / +b;
+}
+
+opr.innerText="";
+});
+
+
+//ans.addEventListener("click",event=>{
+//b=ip.value;
+
+//if(plus){
+//ip.value=+a + +b;
+//}else if(oprm=="-"){
+//ip.value=+a - +b;
+//}
+
+//});
+
+</script>
+
+</html>
